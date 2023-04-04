@@ -1,0 +1,27 @@
+<h1>peepeepoopoo</h1>
+<h2>by sherry</h2>
+<button>
+  hahahahahahahahahahaha
+</button>
+
+<script src="https://tonejs.github.io/build/Tone.js"></script>
+  
+<script>
+  const ctx = new window.AudioContext() //creates audio context
+  const btn = document.querySelector('button') //references html button element
+  
+  //creating an audio context
+ function play() {
+  const osc = ctx.createOscillator()
+  osc.type = 'sine'
+  osc.frequency.value = 440 //440 is A4, right after middle C, what instruments are tuned to
+  
+  osc.connect(ctx.destination) //destination is where the sound is output from, connects osc to speakers
+	
+  osc.start(ctx.currentTime) //webaudioAPI counts in seconds, js default is milliseconds
+  osc.stop(ctx.currentTime + 1)
+  }
+  
+  btn.addEventListener('click' , play)
+  
+</script>
